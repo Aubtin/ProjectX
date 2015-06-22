@@ -1,2 +1,2 @@
 # ProjectX
-[Screenshot](screenshots/001.PNG)
+[Screenshot001](screenshots/001.PNG)
