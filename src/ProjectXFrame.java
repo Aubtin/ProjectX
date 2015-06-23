@@ -36,7 +36,9 @@ public class ProjectXFrame extends JFrame
 		
 		//TextArea
 		inputField = new JTextArea();
-		inputField.setBounds(10, 10, 375, 300);
+		inputField.setWrapStyleWord(true);
+		inputField.setLineWrap(true);
+		inputField.setBounds(10, 10, 375, 310);
 		contentPane.add(inputField);
 		
 		//Button
