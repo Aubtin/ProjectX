@@ -57,8 +57,7 @@ public class ProjectXFrame extends JFrame
 			{
 				//Pass input to HTTP class.. Will handle thread and creation of dialog.
 				ProjectXDialog myPOST = new ProjectXDialog(inputField.getText()); 
-				Thread t = new Thread(myPOST);
-		        t.start();
+		        myPOST.start();
 			}
 		}
 	}
