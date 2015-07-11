@@ -13,7 +13,11 @@
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="98" key="DIALOG_Y_ORIGIN"/>
-		<item value="649" key="DIALOG_X_ORIGIN"/>
+		<item value="50" key="DIALOG_Y_ORIGIN"/>
+		<item value="586" key="DIALOG_X_ORIGIN"/>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="ImportExportAction">
 	</section>
 </section>

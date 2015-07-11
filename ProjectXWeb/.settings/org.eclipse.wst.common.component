@@ -6,6 +6,9 @@
         <dependent-module archiveName="json-20140107.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Aubtin/Documents/workspaceFahrzin/ProjectX/ProjectXWeb/json-20140107.jar">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="mysql-connector-java-5.1.36.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/Aubtin/Documents/workspaceFahrzin/ProjectX/ProjectXWeb/WebContent/WEB-INF/lib/mysql-connector-java-5.1.36.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="ProjectXWeb"/>
         <property name="java-output-path" value="/ProjectXWeb/build/classes"/>
     </wb-module>
