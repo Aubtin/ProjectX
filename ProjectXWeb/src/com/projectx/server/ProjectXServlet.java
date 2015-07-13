@@ -20,21 +20,21 @@ import java.sql.Statement;
  * Servlet implementation class ProjectXServlet
  * MySQL on AWS Oregon	
  * DB Instance Identifier: InternProject
- * DB Name: BlogDB
- * Master Username: dbaccess
- * Master Password: InternProject123
+ * DB Name: ebdb
+ * Master Username: dbadmin
+ * Master Password: dblogin123
  */
 @WebServlet("/ProjectXServlet")
 public class ProjectXServlet extends HttpServlet 
 {
 
-	// JDBC driver name and database URL
-    	static final String JDBC_DRIVER="com.mysql.jdbc.Driver"; 
-    	static final String DB_URL="jdbc:mysql://internproject.cotpco4fkejc.us-west-2.rds.amazonaws.com:3306/BlogDB";
+        //JDBC driver name and database URL
+        static final String JDBC_DRIVER="com.mysql.jdbc.Driver"; 
+    	static final String DB_URL="jdbc:mysql://internproject.cotpco4fkejc.us-west-2.rds.amazonaws.com:3306/ebdb";
 
-    	//  Database credentials
-    	static final String USER = "dbaccess";
-    	static final String PASS = "InternProject123";
+    	//Database credentials
+    	static final String USER = "dbadmin";
+    	static final String PASS = "dblogin123";
 	
 	private static final long serialVersionUID = 1L;
 
@@ -44,7 +44,7 @@ public class ProjectXServlet extends HttpServlet
    	public ProjectXServlet() 
    	{
         	super();
-    	}
+   	}
 
 	/**
 	* @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -56,40 +56,41 @@ public class ProjectXServlet extends HttpServlet
 		ResultSet rs = null;
 
 		try
-    		{
+		{
 			Class.forName(JDBC_DRIVER); 
 
 			// Open a connection
-	    		conn = DriverManager.getConnection(DB_URL,USER,PASS);
-
-	    		// Execute SQL query
-    			stmt = conn.createStatement();
-
-    			String sql = "SELECT id, note FROM posts WHERE id=1";
-	    		rs = stmt.executeQuery(sql);
-
-	    		// Extract data from result set
-    			while(rs.next())
-    			{
-               			//Retrieve by column name
-                		int id  = rs.getInt("id");
-             			String note = rs.getString("note");
-
-                		//Format for JSP
-                		request.setAttribute("message", note); // This will be available as ${message}
-                		request.getRequestDispatcher("/index.jsp").forward(request, response);
-    			}
-             		// Clean-up environment
-             		rs.close();
-             		stmt.close();
-             		conn.close();
-    		}
+			conn = DriverManager.getConnection(DB_URL,USER,PASS);
+			
+			// Execute SQL query
+			stmt = conn.createStatement();
+			
+			String sql = "SELECT id, note FROM posts WHERE id=1";
+			rs = stmt.executeQuery(sql);
+			
+			// Extract data from result set
+			while(rs.next())
+			{
+			    //Retrieve by column name
+			    int id  = rs.getInt("id");
+			    String note = rs.getString("note");
+			    
+			    //Format for JSP
+			    request.setAttribute("message", note); // This will be available as ${message}
+			    request.getRequestDispatcher("/index.jsp").forward(request, response);
+			}
+			
+			// Clean-up environment
+			rs.close();
+			stmt.close();
+			conn.close();
+		}
     		catch(SQLException se)
     		{
     			//Handle errors for JDBC
     			se.printStackTrace();
     		}
-		catch(Exception e)
+		    catch(Exception e)
     		{
     			//Handle errors for Class.forName
     			e.printStackTrace();
@@ -114,7 +115,7 @@ public class ProjectXServlet extends HttpServlet
             		{
             	 		se.printStackTrace();
             		}
-    		}
+    		} 
 	}
 
 	/**
@@ -158,7 +159,7 @@ public class ProjectXServlet extends HttpServlet
     			//Handle errors for JDBC
     			se.printStackTrace();
     		}
-		catch(Exception e)
+		    catch(Exception e)
     		{
     			//Handle errors for Class.forName
     			e.printStackTrace();
