@@ -10,12 +10,12 @@
 
 <body>	
 	<form action = "ProjectXServlet" method="POST"></form>
-	<p>Text File Info: ${message}</p>
 	<form action = "ProjectXServlet" method="POST">
 	<textarea rows="6" cols="70" name="myText" autofocus="true"></textarea>
 	<br>
 	<br>
 	<input type="Submit" value="Send"/>
 	</form>
+	<p>Text File Info: <br> ${message}</p>
 </body>
 </html>
