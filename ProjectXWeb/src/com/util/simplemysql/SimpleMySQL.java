@@ -309,32 +309,32 @@ public class SimpleMySQL {
     
     //Not needed. Adds delay.
     private void check_connection(){
-//        Statement stmt;
-//        ResultSet mysql_result;  
-//        try{
-//            //Execute Query
-//            stmt = mysql_connection.createStatement();
-//            mysql_result = stmt.executeQuery("SELECT 1 from DUAL WHERE 1=0");
-//            mysql_result.close();
-//        }
-//        catch(CommunicationsException e){
-//            System.err.println("Database connection lost");
-//            if(auto_reconnect){auto_reconnect();}
-//        }
-//        catch(NullPointerException e){
-//            System.err.println("MySQL Database not connected!");
-//        }        
-//        catch(SQLTransientConnectionException e){
-//            System.err.println("Database connection problem");
-//            if(auto_reconnect){auto_reconnect();}
-//        }
-//        catch(SQLException e){
-//            System.err.println("Database Communications Error");
-//            if(auto_reconnect){auto_reconnect();}
-//        }  
-//        finally{
-//            mysql_result = null;
-//        }
+        Statement stmt;
+        ResultSet mysql_result;  
+        try{
+            //Execute Query
+            stmt = mysql_connection.createStatement();
+            mysql_result = stmt.executeQuery("SELECT 1 from DUAL WHERE 1=0");
+            mysql_result.close();
+        }
+        catch(CommunicationsException e){
+            System.err.println("Database connection lost");
+            if(auto_reconnect){auto_reconnect();}
+        }
+        catch(NullPointerException e){
+            System.err.println("MySQL Database not connected!");
+        }        
+        catch(SQLTransientConnectionException e){
+            System.err.println("Database connection problem");
+            if(auto_reconnect){auto_reconnect();}
+        }
+        catch(SQLException e){
+            System.err.println("Database Communications Error");
+            if(auto_reconnect){auto_reconnect();}
+        }  
+        finally{
+            mysql_result = null;
+        }
     }
     
     /**
